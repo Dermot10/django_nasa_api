@@ -1,0 +1,72 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block extend_head %}
+
+{% endblock %}
+
+{% block extend_nav %} 
+
+<ul class="sidenav">
+  <li><a class="active" href="javascript:void(0)">Home</a></li>
+  <li><a href="{% url 'main:results' %}">Results</a></li>
+  <li><a href="{% url 'main:patents' %}">Patents</a></li>
+</ul>
+
+{% endblock %}
+
+
+{% block content %}
+
+<h3 id="map">NASA API INTERFACE - Home</h3>
+
+<div class="container">
+
+	<form id="apiform" method="POST" action="/">
+    {% csrf_token %} 
+
+    	<label for="username">Select category</label>
+    	<select name="category" id="category">
+    		<option selected value="">Select one</option>
+		  	<option value="apod">Astronomy Picture of the Day (APOD)</option>
+		  	<option value="mars">Mars Rover Photos</option>
+		  	<option value="epic">Earth Polychromatic Imaging Camera (EPIC)</option>
+		</select>
+	   
+
+	   <button type="submit">Submit</button>
+	</form>
+
+
+</div>
+<div class="container">
+
+	<form id="apiform" method="POST" action="/">
+    {% csrf_token %} 
+
+    	<label for="username">Select category</label>
+    	<select name="category" id="category">
+    		<option selected value="">Select one</option>
+			<option value="robotics">Nasa Patent Approved Robotics Projects</option>
+			<option value="it-software">Nasa Patent Approved IT/Software Projects</option>"
+			<option value="aerospace">Nasa Patent Approved Aerospace Projects</option>"
+			<option value="propulsion">Nasa Patent Approved Propulsion Projects</option>"
+		</select>
+	   
+
+	   <button type="submit">Submit</button>
+	</form>
+
+
+</div>
+
+
+{% endblock %}
+
+{% block extend_footer %}
+
+
+
+
+{% endblock %}

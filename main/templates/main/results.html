@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block extend_head %}
+
+{% endblock %}
+
+{% block extend_nav %} 
+
+<ul class="sidenav">
+  <li><a href="{% url 'main:home' %}">Home</a></li>
+  <li><a href="{% url 'main:patents' %}">Patents</a></li>
+  <li><a class="active" href="javascript:void(0)">Results</a></li>
+  
+</ul>
+
+{% endblock %}
+
+
+{% block content %}
+
+<h3 id="map">Django NASA API Demo - Results</h3>
+
+<div class="container">
+
+	<h4>API Results for:</h4>
+	<h3>Category: <em style="color: #9c07b6"><b>"{{category}}"</b></em></h3>
+	<h3>{{results.text}}</h3>
+
+	  <img src="{{results.image}}" style="width: 100%; height: auto">
+
+</div>
+
+
+{% endblock %}
+
+{% block extend_footer %}
+
+
+
+
+{% endblock %}

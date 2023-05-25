@@ -1,0 +1,21 @@
+# Base image with Python pre-installed
+FROM python:3.8-slim
+
+ENV PYTHONUNBUFFERED=1
+
+# Set working directory in the container
+RUN mkdir /code
+COPY . /code/
+WORKDIR /code
+
+# Install project dependencies
+RUN set -e; \
+    /usr/local/bin/python -m pip install --upgrade pip ;\
+    python -m pip install -r /code/requirements.txt ; \
+    pip install -U python-dotenv \ 
+    pip install requests \
+    pip install beautifulsoup4
+
+
+# Expose the port that Django runs on
+EXPOSE 8000
